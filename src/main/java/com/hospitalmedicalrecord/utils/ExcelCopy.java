@@ -11,7 +11,8 @@ import java.nio.file.StandardCopyOption;
 public class ExcelCopy {
    public static final String TEMPLATE_FILEPATH = "C:\\Users\\Matt\\OneDrive\\Desktop\\MedicalRecordCsv\\Templates\\Template.xlsx";
    public static final String NEW_FOLDERPATH = "C:\\Users\\Matt\\OneDrive\\Desktop\\MedicalRecordCsv\\Results\\";
-   public static void copyExcelTemplate(){
+
+   public static String copyExcelTemplate(){
       String newFilePath = NEW_FOLDERPATH + "Hospital-Record" + DateTime.generateDateTime() + AppConstants.EXCEL_FILE_EXTENSION;
       File template = new File(TEMPLATE_FILEPATH);
       File newFile = new File(newFilePath);
@@ -20,6 +21,7 @@ public class ExcelCopy {
        } catch (IOException e) {
           System.out.println(e.getMessage());
        }
+       return newFile.getAbsolutePath().toString();
    }
 
 }

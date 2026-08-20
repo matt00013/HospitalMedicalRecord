@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CsvFileReader {
-    public static void readCsv(){
+    public static List<List<String>> readCsv(){
         String csvFilePath = "C:\\Users\\Matt\\OneDrive\\Desktop\\MedicalRecordCsv\\CSV\\mock_medical_records_large.csv";
         //FileReader fileReader = new FileReader(file);
-        List <List<String>> records = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("csvFilePath"))) {
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
             String line;
             while ((line = br.readLine()) != null){
                 String[] values = line.split(AppConstants.COMMA_DELIMITER);
@@ -27,5 +27,6 @@ public class CsvFileReader {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return records;
     }
 }
