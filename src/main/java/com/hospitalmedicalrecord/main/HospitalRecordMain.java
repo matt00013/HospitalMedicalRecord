@@ -15,12 +15,10 @@ public class HospitalRecordMain {
         //ExcelGenerator.generateExcel();
 
         String excelFilePath = ExcelCopy.copyExcelTemplate();
-        System.out.println(excelFilePath);
         //FileNameExtensionFilter filter = new FileNameExtensionFilter("c");
         List<List<String>> records = CsvFileReader.readCsv();
         //System.out.print(records.get(0).get(0));
         ExcelWriter writer = new ExcelWriter();
         writer.writeExcel(excelFilePath, records);
-
     }
 }
